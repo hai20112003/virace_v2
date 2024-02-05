@@ -116,3 +116,22 @@ function togglePasswordType() {
     passwordInput.type = "password";
   }
 }
+
+$('.openmodale').click(function (e) {
+  e.preventDefault();
+  $('.modale_disclaimer').addClass('opened');
+});
+$('.closemodale').click(function (e) {
+  e.preventDefault();
+  $('.modale_disclaimer').removeClass('opened');
+});
+
+
+$('.confidentiality').click(function (e) {
+  e.preventDefault();
+  $('.modale_confidentiality').addClass('opened');
+});
+$('.closemodale').click(function (e) {
+  e.preventDefault();
+  $('.modale_confidentiality').removeClass('opened');
+});

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
-    <div class="container">
+    <div class="container_layout">
       <header>
         <div class="header">
           <div class="logo">
@@ -18,39 +18,37 @@
           <div class="header-nav">
             <ul class="menu">
               <li class="menu-item">
-                <a
-                  onclick="home()"
-                  data-lang='{"en": "Home", "vi": "Trang chủ"}'
-                  >Home</a
-                >
+                <a onclick="home()">Home</a>
               </li>
               <li class="menu-item">
-                <a
-                  href="./page/login/index.html"
-                  data-lang='{"en": "Login/Register", "vi": "Đăng nhập/Đăng ký"}'
-                  >Login/Register</a
-                >
+                <a href="./page/login/index.html">Login/Register</a>
               </li>
             </ul>
             <div class="header-language">
               <div class="modelLanguage">
                 <label class="img" for="language">
                   <div>
-                    <img id="languageIcon" src="./image/vi.png" alt="" />
+                    <img
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAUCAYAAACeXl35AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAE0SURBVHgB7ZWxSsNAGMf/yeVMNTSiQQerCIKKL+AkOLm66OrgA7ipOPsIPoBPIOI7uDm420UHgxURQkKbNHdpTa92SmnujlIo9Lfkyx3f/Y77vuOM+vZGFxPExISZCYdCaxzWJocOWkLnKIZ73IIOWkL3tImFwxg6WFBkbovB3mEitncZ2m9UJR1G2T2c30/gXYSg65n4N90MZrWf0okMdEIiYuYT/NwuoV0fvYHSI41fKvi+8ZB+WLDyZhnIRHIe98bST4LGlVcqkxLif/f++QqC+2ph7vduEf7ZKvgXkVlKrWnS92LJuwxKKAndk6b4Ro8OwgdHxM5BAhWku5Su8bxDORrXy4ie+rLk1YZ3GYha9hpIBkP2tbD3UmQBKdSK1jLQ/Kq0nisyy8gLx8XstZh+4R9GI1rompz7kgAAAABJRU5ErkJggg=="
+                      alt=""
+                    />
                   </div>
                   <div><i nz-icon nzType="down" nzTheme="outline"></i></div>
                 </label>
               </div>
-              <input type="checkbox" class="language" name="" id="language" />
-              <div class="modal" onclick="closeModal(event)">
-                <div
-                  onclick="changeLang('vi')"
-                  class="no-border-first-item lang"
-                >
-                  <img src="./image/vi.png" alt="" />VI
+
+              <div class="modal" (click)="closeModal($event)">
+                <div class="no-border-first-item lang">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAUCAYAAACeXl35AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAE0SURBVHgB7ZWxSsNAGMf/yeVMNTSiQQerCIKKL+AkOLm66OrgA7ipOPsIPoBPIOI7uDm420UHgxURQkKbNHdpTa92SmnujlIo9Lfkyx3f/Y77vuOM+vZGFxPExISZCYdCaxzWJocOWkLnKIZ73IIOWkL3tImFwxg6WFBkbovB3mEitncZ2m9UJR1G2T2c30/gXYSg65n4N90MZrWf0okMdEIiYuYT/NwuoV0fvYHSI41fKvi+8ZB+WLDyZhnIRHIe98bST4LGlVcqkxLif/f++QqC+2ph7vduEf7ZKvgXkVlKrWnS92LJuwxKKAndk6b4Ro8OwgdHxM5BAhWku5Su8bxDORrXy4ie+rLk1YZ3GYha9hpIBkP2tbD3UmQBKdSK1jLQ/Kq0nisyy8gLx8XstZh+4R9GI1rompz7kgAAAABJRU5ErkJggg=="
+                    alt=""
+                  />VI
                 </div>
-                <div onclick="changeLang('en')" class="lang">
-                  <img src="./image/en.png" alt="" />EN
+                <div (click)="changeLang('en')" class="lang">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAAoCAYAAACrUDmFAAAABHNCSVQICAgIfAhkiAAABUlJREFUaIHtmltMU3ccxz89A5lWaEMYirXgHrzFJYtbHHdcQEVA4rzFsvRBNkWcixMzdXtQoj6YMC+wkLji1GWRofOyxCLUhJFNoFUzY0zWbPgybbkENNrLXCMI3YOeYwsttKArLHweT/7nf37f82nT///3rwzA7XYfBIqN1+8rNn56TXbP+pjRYPgpk/TkWAA65y0ecmzcn78C0GTqZvmqxlE9N0EtR1eRSHpKrM1l+m3flJRF5YLt+/MH+x3OLwBlSuIbMlNDNls3zR3Vg0LB1k1zMTVkk6x+SrumWNle8MnRv39u3i449VeK76atxGW6CYBCMYmyAwsxXMwkQS0PcdnDk6CWY7iYSdmBhbjPX8CSp6XP7kR9+TTyzNRSYca3h5WTE9+hvWALD/Yfod/hBCA9JRZTQzb5OTNDHME/+TkzMTVk857ChiVXy4MDR1EWaoivryZiwRwAhVBndBB3/BBxujIc5/RYcrVeNs+cSuPMqTQUikkhDeOJZ119J7/DmqcFtxv15dNElxRJ42oN7TJh/YYmNIXN9CWnMqvlEhHzZw+ymZ8zkz9urBgTNsValsX/gyVXi+1kDTF7Sjyt4XD0oilsZv2GJgQAfX0b8xbpGcs2fVl7LVJOfF01yo8LpHG1hnbmLdKjr28DeBYQwG7vYaza9GdNdVZHmHoG4G3Nbu+R7hUGTibabDG7Qm4zUGtNpm4va54MCgjPbC5f1cjuvbckm+Gq6f+pTXHuJcou7qat9Gtt995bLF/V6GVt2IAilVWtJGUZaDG7UJ3VEbOnRLL5xHwHePGWdRWJL8WmON8PFW/TW1FJe8EWwlXTfVpLyjJQWdU65HxDBgS4Z30s2RTWrSW+rppw1XSseVoelh+XxmnXv4mpIZuMlNgRh8t4/tu7RNmFJVeL45ye2K/2+rUWyJJSNmVajTvQAhLUcnRfJ5KeHIvtRA0Py6uQL3ufaYdLvcbZ7T2SzUDXouI9T8x3sOZpkS/NYNrhUoSoSGlsk6mbzduuBxRMCni1pSvggCLpzy09tXYASG/XF4EGFOl3OOm1dkq/aZ40GbuDLRWZ2+0OOmAwBBvwZTPsd3C8I+uYm/FKDYaa/73BiYDjnYmA452JgOOdiZXMeCesyRT8AlbsWntiO1FD1LoVXqv/0TJwMT+SWsOCaZeLrXFPXKabdO3cT7/dwdRlixGiInE4eomKCg+qEF/32E6ewXGhlujtRSg/0oAbNn8W3HYp4I+o2BoXt0r9DicP9h/x2nF3yBTkrG7ktvlRwAWI3DY/Imd1I5a2F8XHlO5AWah59hxNMcnqpwR7tDBsQM/WuLiJdZluSjtusU+iMzhJyrrC1RHs2USuGrtJyrpC9Y9/SdeiS4pQXz5Nn92JJU+L+8LFoI4WhgwYiDVh3Vo0hc3s2nPLb+MnGOz2Hoq2XUdT2IzD0QtAxII5xNdXj8imz4DDWYvTlaE6q8Ngdvtt140WsX1Za2iXrkWXFKGqOUavtQNLnpawa8ZhbQ4KKB5o+LIWMX82s1ou0Zec6rPJ+rLxbEaLNicnv0t8fTVRa1bQuXkXnUU7SX1rst+DIimgr2buQGtxxw9RZ3S8Mmv+GGhTiIokpnQHqppjPDG3cjdtJWHXjD6b0QIMbuCG0po/ArWZl6rwyiKMVWv+CNamMJat+SMIm24BsPmy1mJ2kZRlGBPW/KGvbyMpyyAt4Qba7Nj0uV14XNvwzUBrwbTGQ43n0cIgmx9k7wubmr/0S9fvrby+YE6x8cZ9xcatv4z6byShoLKqFX19m3i0YBOiIvcpPlxT/i+FPFynM0kRggAAAABJRU5ErkJggg=="
+                    alt=""
+                  />EN
                 </div>
               </div>
             </div>

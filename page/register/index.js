@@ -82,7 +82,9 @@ function clickIsChecked(isChecked) {
 function home() {
   window.location.href = "https://viracresearch.com/trang-chu/";
 }
-
+function news() {
+  window.location.href = "http://online.gov.vn/Home/WebDetails/86982?AspxAutoDetectCookieSupport=1";
+}
 function changeLang(lang) {
   langSelect = lang;
   const elements = document.querySelectorAll("[data-lang]");
@@ -144,4 +146,27 @@ function togglePasswordType() {
   } else {
     passwordInput.type = "password";
   }
+}
+$('.openmodale').click(function (e) {
+  e.preventDefault();
+  $('.modale_disclaimer').addClass('opened');
+});
+$('.closemodale').click(function (e) {
+  e.preventDefault();
+  $('.modale_disclaimer').removeClass('opened');
+});
+
+
+$('.confidentiality').click(function (e) {
+  e.preventDefault();
+  $('.modale_confidentiality').addClass('opened');
+});
+$('.closemodale').click(function (e) {
+  e.preventDefault();
+  $('.modale_confidentiality').removeClass('opened');
+});
+
+
+function news() {
+  window.location.href = "http://online.gov.vn/Home/WebDetails/86982?AspxAutoDetectCookieSupport=1";
 }
