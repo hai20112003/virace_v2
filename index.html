@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="header">
+          <div class="logo">
+            <img
+              src="https://web-develop.virace.vn/static/media/logo.7b93e016.svg"
+            />
+          </div>
+          <div class="header-nav">
+            <ul class="menu">
+              <li class="menu-item">
+                <a
+                  onclick="home()"
+                  data-lang='{"en": "Home", "vi": "Trang chủ"}'
+                  >Home</a
+                >
+              </li>
+              <li class="menu-item">
+                <a
+                  href="./page/login/index.html"
+                  data-lang='{"en": "Login/Register", "vi": "Đăng nhập/Đăng ký"}'
+                  >Login/Register</a
+                >
+              </li>
+            </ul>
+            <div class="header-language">
+              <div class="modelLanguage">
+                <label class="img" for="language">
+                  <div>
+                    <img id="languageIcon" src="./image/vi.png" alt="" />
+                  </div>
+                  <div><i nz-icon nzType="down" nzTheme="outline"></i></div>
+                </label>
+              </div>
+              <input type="checkbox" class="language" name="" id="language" />
+              <div class="modal" onclick="closeModal(event)">
+                <div
+                  onclick="changeLang('vi')"
+                  class="no-border-first-item lang"
+                >
+                  <img src="./image/vi.png" alt="" />VI
+                </div>
+                <div onclick="changeLang('en')" class="lang">
+                  <img src="./image/en.png" alt="" />EN
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+  </body>
+  <script src="index.js"></script>
+</html>
