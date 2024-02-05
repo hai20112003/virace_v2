@@ -1,22 +1,22 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-#language{
+#language {
   display: none;
 }
-#language:checked + .modal{
+#language:checked + .modal {
   display: block !important;
 }
-.container{
-    background-image: url(https://web-develop.virace.vn/static/media/login.31ffb97c.png);
-    background-color: #01103d;
-    min-height: 100vh;
-    color: #aec1e4;
-    line-height: 1.375;
-    position: relative;
-  }
+.container {
+  background-image: url(https://web-develop.virace.vn/static/media/login.31ffb97c.png);
+  background-color: #01103d;
+  min-height: 100vh;
+  color: #aec1e4;
+  line-height: 1.375;
+  position: relative;
+}
 header {
   position: fixed;
   width: 100%;
@@ -398,7 +398,7 @@ header {
 }
 
 .login form .form-password .hide-password svg path {
-  fill: #6D7278;
+  fill: #6d7278;
 }
 
 .login .login-bottom {
@@ -457,7 +457,12 @@ header {
   justify-content: center;
   transition: all 0.4s ease-in-out !important;
   border: 0;
-  background-image: linear-gradient(270deg, #47b5e8, #2b74ce, #47b5e8) !important;
+  background-image: linear-gradient(
+    270deg,
+    #47b5e8,
+    #2b74ce,
+    #47b5e8
+  ) !important;
   background-size: 200% 100% !important;
   width: 100%;
   min-width: 115px;
@@ -521,7 +526,7 @@ header {
   width: 100%;
 }
 
-small{
+small {
   display: flex;
   justify-content: start;
   margin-top: 2px;
@@ -530,4 +535,9 @@ small{
 }
 .form-control.success ~ small {
   display: none;
+}
+
+
+.forgot .note{
+    margin-bottom: 1.25rem;
 }

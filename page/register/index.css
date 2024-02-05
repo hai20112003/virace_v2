@@ -1,0 +1,11 @@
+.register .form-control {
+  margin-top: 2.5rem;
+}
+.register .form-name {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.register .form-name > div > div {
+  width: 100%;
+}
