@@ -138,3 +138,8 @@ $(".closemodale").click(function (e) {
   e.preventDefault();
   $(".modale_confidentiality").removeClass("opened");
 });
+
+
+function news() {
+  window.location.href = "http://online.gov.vn/Home/WebDetails/86982?AspxAutoDetectCookieSupport=1";
+}
