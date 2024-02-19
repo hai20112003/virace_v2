@@ -1,6 +1,6 @@
 const email = document.getElementById("email");
 const password = document.getElementById("password");
-const formLogin = document.getElementById('formLogin');
+const formLogin = document.getElementById("formLogin");
 let langSelect = "vi";
 function showError(input, messageKey, lang) {
   const formControl = input.closest(".form-control");
@@ -15,7 +15,7 @@ function getTranslatedMessage(key, lang) {
 }
 function showSucces(input) {
   const formControl = input.parentElement;
-  formControl.className = 'form-control success';
+  formControl.className = "form-control success";
 }
 
 function checkEmail(input) {
@@ -64,11 +64,12 @@ function home() {
   window.location.href = "https://viracresearch.com/trang-chu/";
 }
 
-function changeLang(lang) {
+function changeLang(lang, event) {
   langSelect = lang;
   const elements = document.querySelectorAll("[data-lang]");
   elements.forEach((element) => {
     const translations = JSON.parse(element.getAttribute("data-lang"));
+
     if (translations[lang]) {
       element.textContent = translations[lang];
     }
@@ -84,13 +85,16 @@ function changeLang(lang) {
     const key = element.dataset.translate;
     element.placeholder = translations[lang][key];
   });
+  closeModal();
 }
 
-function closeModal(event) {
+function openModal() {
   const modal = document.querySelector(".modal");
-  if (!modal.contains(event.target)) {
-    modal.style.display = "none";
-  }
+  modal.style.display = "block";
+}
+function closeModal() {
+  const modal = document.querySelector(".modal");
+  modal.style.display = "none";
 }
 
 const translations = {
@@ -117,21 +121,20 @@ function togglePasswordType() {
   }
 }
 
-$('.openmodale').click(function (e) {
+$(".openmodale").click(function (e) {
   e.preventDefault();
-  $('.modale_disclaimer').addClass('opened');
+  $(".modale_disclaimer").addClass("opened");
 });
-$('.closemodale').click(function (e) {
+$(".closemodale").click(function (e) {
   e.preventDefault();
-  $('.modale_disclaimer').removeClass('opened');
+  $(".modale_disclaimer").removeClass("opened");
 });
 
-
-$('.confidentiality').click(function (e) {
+$(".confidentiality").click(function (e) {
   e.preventDefault();
-  $('.modale_confidentiality').addClass('opened');
+  $(".modale_confidentiality").addClass("opened");
 });
-$('.closemodale').click(function (e) {
+$(".closemodale").click(function (e) {
   e.preventDefault();
-  $('.modale_confidentiality').removeClass('opened');
+  $(".modale_confidentiality").removeClass("opened");
 });

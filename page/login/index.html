@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./../../index.css" />
-
   </head>
   <body>
     <div class="container_layout">
@@ -35,22 +34,21 @@
             </ul>
             <div class="header-language">
               <div class="modelLanguage">
-                <label class="img" for="language">
+                <label class="img" for="language" onclick="openModal()">
                   <div>
                     <img id="languageIcon" src="./../../image/vi.png" alt="" />
                   </div>
                   <div><i nz-icon nzType="down" nzTheme="outline"></i></div>
                 </label>
               </div>
-              <input type="checkbox" class="language" name="" id="language" />
-              <div class="modal" onclick="closeModal(event)">
+              <div class="modal" onclick="closeModal()">
                 <div
-                  onclick="changeLang('vi')"
+                  onclick="changeLang('vi', event)"
                   class="no-border-first-item lang"
                 >
                   <img src="./../../image/vi.png" alt="" />VI
                 </div>
-                <div onclick="changeLang('en')" class="lang">
+                <div onclick="changeLang('en', event)" class="lang">
                   <img src="./../../image/en.png" alt="" />EN
                 </div>
               </div>
@@ -135,13 +133,12 @@
                 </svg>
               </div>
               <small class="error"></small>
-
             </div>
-    
+
             <div class="login-bottom">
               <div class="login-bottom-left">
                 <input type="checkbox" id="checkbox" />
-                <label for="checkbox" class="icon" >
+                <label for="checkbox" class="icon">
                   <span onclick="clickIsChecked(true)" class="false">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -154,7 +151,11 @@
                       />
                     </svg>
                   </span>
-                  <span onclick="clickIsChecked(false)" class="true" style="display: none;">
+                  <span
+                    onclick="clickIsChecked(false)"
+                    class="true"
+                    style="display: none"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -167,41 +168,71 @@
                     </svg>
                   </span>
                 </label>
-      
-                <div class="label" data-lang='{"en": "Remember", "vi": "Nhớ đăng nhập"}'>Nhớ đăng nhập</div>
+
+                <div
+                  class="label"
+                  data-lang='{"en": "Remember", "vi": "Nhớ đăng nhập"}'
+                >
+                  Nhớ đăng nhập
+                </div>
               </div>
               <div class="login-bottom-right">
-                <a href="./../forgotPassword/index.html" data-lang='{"en": "Forgot password", "vi": "Quên mật khẩu"}'>Quên mật khẩu?</a>
+                <a
+                  href="./../forgotPassword/index.html"
+                  data-lang='{"en": "Forgot password?", "vi": "Quên mật khẩu?"}'
+                  >Quên mật khẩu?</a
+                >
               </div>
             </div>
-      
+
             <div class="form-submit login-submit">
               <button
-              type="submit"
+                type="submit"
                 loader_color="white"
                 class="common-button w-100 btn btn-secondary"
               >
-                <span data-lang='{"en": "Login", "vi": "Đăng nhập"}'>Đăng nhập</span>
+                <span data-lang='{"en": "Login", "vi": "Đăng nhập"}'
+                  >Đăng nhập</span
+                >
               </button>
             </div>
             <div class="login-or-register">
-              <span data-lang='{"en": "No account?", "vi": "Không có tài khoản?"}'>Không có tài khoản?<span>
+              <span
+                data-lang='{"en": "No account?", "vi": "Không có tài khoản?"}'
+                >Không có tài khoản?</span
+              >
               <span class="ml-2 action-link">
-                <a href="./../register/index.html"><span data-lang='{"en": "Register", "vi": "Đăng ký"}'>Đăng ký</span></a>
+                <a
+                  href="./../register/index.html"
+                  data-lang='{"en": "Register", "vi": "Đăng ký"}'
+                  >Đăng ký</a
+                >
               </span>
             </div>
           </form>
         </div>
-      
+
         <div class="copyright">
           <p><a href="#">COPYRIGHT © 2024 VIRAC</a></p>
           <p class="">
-            <a href="#" data-lang='{"en": "Confidentiality", "vi": "Bảo mật Thông tin và Dữ liệu"}' class="confidentiality"><span>Bảo mật Thông tin và Dữ liệu</span></a> |
-            <a href="#" data-lang='{"en": "Disclaimer", "vi": "Điều khoản miễn trừ"}' class="openmodale"><span>Điều khoản miễn trừ</span></a>
+            <a
+              href="#"
+              data-lang='{"en": "Confidentiality", "vi": "Bảo mật Thông tin và Dữ liệu"}'
+              class="confidentiality"
+              ><span>Bảo mật Thông tin và Dữ liệu</span></a
+            >
+            |
+            <a
+              href="#"
+              data-lang='{"en": "Disclaimer", "vi": "Điều khoản miễn trừ"}'
+              class="openmodale"
+              ><span>Điều khoản miễn trừ</span></a
+            >
           </p>
           <p class="">
             <span class="img-noti"
-              ><img onclick="news()"
+              ><img
+                onclick="news()"
                 src="https://web-develop.virace.vn/static/media/logoSaleNoti.83fab77c.png"
                 alt=""
             /></span>
@@ -212,18 +243,45 @@
         <div class="modale modale_disclaimer" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-header">
-              <h2 data-lang='{"en": "Disclaimer", "vi": "Điều khoản miễn trừ"}'>Điều khoản miễn trừ</h2>
-              <a href="#" class="btn-close closemodale" aria-hidden="true">&times;</a>
+              <h2 data-lang='{"en": "Disclaimer", "vi": "Điều khoản miễn trừ"}'>
+                Điều khoản miễn trừ
+              </h2>
+              <a href="#" class="btn-close closemodale" aria-hidden="true"
+                >&times;</a
+              >
             </div>
             <div class="modal-body">
               <p class="mb-2 font-medium">
-                <span data-lang='{"en": "Copyright 2020 VIRAC JSC. All rights reserved.", "vi": "Bản quyền 2020 của Công ty Cổ phần Nghiên Cứu Ngành và Tư Vấn Việt Nam (VIRAC). Đã đăng ký bản quyền."}'>Bản quyền 2020 của Công ty Cổ phần Nghiên Cứu Ngành và Tư Vấn Việt Nam (VIRAC). Đã đăng ký bản quyền.</span>
-              </p>
-              <p class="mb-2" >
-                <span data-lang='{"en": "All data and information in VIRACE – Platform and in this report has been prepared on the basis of information believed to be reliable at the time of releases. VIRAC JSC makes no representation or warranty regarding the completeness and accuracy of such information. Opinions, estimates and projection expressed in the report represent the current views at the date of publication only. They do not necessarily reflect the opinion of VIRAC JSC and are subject to change without notice.", "vi": "Tất cả thông tin và dữ liệu trên Hệ thống VIRACE và trong báo cáo này được chuẩn bị trên cơ sở rằng các thông tin và dữ liệu được cho là đáng tin cậy tại thời điểm được cung cấp. VIRAC không tuyên bố hay đảm bảo về tính đầy đủ và chính xác của các thông tin và dữ liệu đó. Chúng không nhất thiết phản ánh các kết quả và xu hướng thị trường hoặc ý kiến của VIRAC, và có thể thay đổi mà không cần báo trước."}'>Tất cả thông tin và dữ liệu trên Hệ thống VIRACE và trong báo cáo này được chuẩn bị trên cơ sở rằng các thông tin và dữ liệu được cho là đáng tin cậy tại thời điểm được cung cấp. VIRAC không tuyên bố hay đảm bảo về tính đầy đủ và chính xác của các thông tin và dữ liệu đó. Chúng không nhất thiết phản ánh các kết quả và xu hướng thị trường hoặc ý kiến của VIRAC, và có thể thay đổi mà không cần báo trước.</span>
+                <span
+                  data-lang='{"en": "Copyright 2020 VIRAC JSC. All rights reserved.", "vi": "Bản quyền 2020 của Công ty Cổ phần Nghiên Cứu Ngành và Tư Vấn Việt Nam (VIRAC). Đã đăng ký bản quyền."}'
+                  >Bản quyền 2020 của Công ty Cổ phần Nghiên Cứu Ngành và Tư Vấn
+                  Việt Nam (VIRAC). Đã đăng ký bản quyền.</span
+                >
               </p>
               <p class="mb-2">
-                <span data-lang='{"en": "This report is provided, for information purposes only, to institutional investor and retail clients of VIRAC JSC, and does not constitute an offer or solicitation to buy or sell any assets and/or equity discussed herein in any jurisdiction. Clients must make their decisions based upon independent advice subject to their particular financial situation and investment objectives. This report may not be copied, reproduced, published or redistributed by any person for any purpose without the written permission of an authorized representative of VIRAC JSC. Please cite sources when quoting.", "vi": "Tất cả thông tin và dữ liệu được cung cấp, với mục đích cung cấp thông tin, cho Khách hàng/Người sử dụng của VIRAC, và không cấu thành nội dung của bảng chào giá hoặc lời mời mua hoặc bán bất kỳ tài sản hoặc/và quyền sở hữu nào được thảo luận ở đây trong bất kỳ định chế pháp lý nào. Khách hàng/Người sử dụng phải đưa ra quyết định dựa trên sự tư vấn độc lập tùy thuộc vào tình hình tài chính và mục tiêu cụ thể của mình. Vui lòng trích dẫn nguồn khi lấy dẫn chứng."}' >Tất cả thông tin và dữ liệu được cung cấp, với mục đích cung cấp thông tin, cho Khách hàng/Người sử dụng của VIRAC, và không cấu thành nội dung của bảng chào giá hoặc lời mời mua hoặc bán bất kỳ tài sản hoặc/và quyền sở hữu nào được thảo luận ở đây trong bất kỳ định chế pháp lý nào. Khách hàng/Người sử dụng phải đưa ra quyết định dựa trên sự tư vấn độc lập tùy thuộc vào tình hình tài chính và mục tiêu cụ thể của mình. Vui lòng trích dẫn nguồn khi lấy dẫn chứng.</span>
+                <span
+                  data-lang='{"en": "All data and information in VIRACE - Platform and in this report has been prepared on the basis of information believed to be reliable at the time of releases. VIRAC JSC makes no representation or warranty regarding the completeness and accuracy of such information. Opinions, estimates and projection expressed in the report represent the current views at the date of publication only. They do not necessarily reflect the opinion of VIRAC JSC and are subject to change without notice.", "vi": "Tất cả thông tin và dữ liệu trên Hệ thống VIRACE và trong báo cáo này được chuẩn bị trên cơ sở rằng các thông tin và dữ liệu được cho là đáng tin cậy tại thời điểm được cung cấp. VIRAC không tuyên bố hay đảm bảo về tính đầy đủ và chính xác của các thông tin và dữ liệu đó. Chúng không nhất thiết phản ánh các kết quả và xu hướng thị trường hoặc ý kiến của VIRAC, và có thể thay đổi mà không cần báo trước."}'
+                  >Tất cả thông tin và dữ liệu trên Hệ thống VIRACE và trong báo
+                  cáo này được chuẩn bị trên cơ sở rằng các thông tin và dữ liệu
+                  được cho là đáng tin cậy tại thời điểm được cung cấp. VIRAC
+                  không tuyên bố hay đảm bảo về tính đầy đủ và chính xác của các
+                  thông tin và dữ liệu đó. Chúng không nhất thiết phản ánh các
+                  kết quả và xu hướng thị trường hoặc ý kiến của VIRAC, và có
+                  thể thay đổi mà không cần báo trước.</span
+                >
+              </p>
+              <p class="mb-2">
+                <span
+                  data-lang='{"en": "This report is provided, for information purposes only, to institutional investor and retail clients of VIRAC JSC, and does not constitute an offer or solicitation to buy or sell any assets and/or equity discussed herein in any jurisdiction. Clients must make their decisions based upon independent advice subject to their particular financial situation and investment objectives. This report may not be copied, reproduced, published or redistributed by any person for any purpose without the written permission of an authorized representative of VIRAC JSC. Please cite sources when quoting.", "vi": "Tất cả thông tin và dữ liệu được cung cấp, với mục đích cung cấp thông tin, cho Khách hàng/Người sử dụng của VIRAC, và không cấu thành nội dung của bảng chào giá hoặc lời mời mua hoặc bán bất kỳ tài sản hoặc/và quyền sở hữu nào được thảo luận ở đây trong bất kỳ định chế pháp lý nào. Khách hàng/Người sử dụng phải đưa ra quyết định dựa trên sự tư vấn độc lập tùy thuộc vào tình hình tài chính và mục tiêu cụ thể của mình. Vui lòng trích dẫn nguồn khi lấy dẫn chứng."}'
+                  >Tất cả thông tin và dữ liệu được cung cấp, với mục đích cung
+                  cấp thông tin, cho Khách hàng/Người sử dụng của VIRAC, và
+                  không cấu thành nội dung của bảng chào giá hoặc lời mời mua
+                  hoặc bán bất kỳ tài sản hoặc/và quyền sở hữu nào được thảo
+                  luận ở đây trong bất kỳ định chế pháp lý nào. Khách hàng/Người
+                  sử dụng phải đưa ra quyết định dựa trên sự tư vấn độc lập tùy
+                  thuộc vào tình hình tài chính và mục tiêu cụ thể của mình. Vui
+                  lòng trích dẫn nguồn khi lấy dẫn chứng.</span
+                >
               </p>
             </div>
           </div>
@@ -231,21 +289,68 @@
         <div class="modale_confidentiality modale" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-header">
-              <h2 data-lang='{"en": "CONFIDENTIALITY", "vi": "BẢO MẬT THÔNG TIN VÀ DỮ LIỆU"}'>BẢO MẬT THÔNG TIN VÀ DỮ LIỆU</h2>
-              <a href="#" class="btn-close closemodale" aria-hidden="true">&times;</a>
+              <h2
+                data-lang='{"en": "CONFIDENTIALITY", "vi": "BẢO MẬT THÔNG TIN VÀ DỮ LIỆU"}'
+              >
+                BẢO MẬT THÔNG TIN VÀ DỮ LIỆU
+              </h2>
+              <a href="#" class="btn-close closemodale" aria-hidden="true"
+                >&times;</a
+              >
             </div>
             <div class="modal-body">
               <p class="mb-2 font-medium">
-                <span data-lang='{"en": "CONFIDENTIAL - THIS INFORMATION IS PROVIDED BY VIRAC JSC SUBJECT TO THE TERMS AND CONDITIONS OF YOUR SUBSCRIPTION CONTRACT AND IS NOT TO BE DISCLOSED.", "vi": "BẢO MẬT – THÔNG TIN NÀY ĐƯỢC CÔNG TY CỔ PHẦN NGHIÊN CỨU NGÀNH VÀ TƯ VẤN VIỆT NAM (VIRAC) CUNG CẤP THEO CÁC ĐIỀU KHOẢN VÀ ĐIỀU KIỆN CỦA HỢP ĐỒNG ĐĂNG KÝ VÀ KHÔNG ĐƯỢC CÔNG BỐ."}'>BẢO MẬT – THÔNG TIN NÀY ĐƯỢC CÔNG TY CỔ PHẦN NGHIÊN CỨU NGÀNH VÀ TƯ VẤN VIỆT NAM (VIRAC) CUNG CẤP THEO CÁC ĐIỀU KHOẢN VÀ ĐIỀU KIỆN CỦA HỢP ĐỒNG ĐĂNG KÝ VÀ KHÔNG ĐƯỢC CÔNG BỐ.</span>
+                <span
+                  data-lang='{"en": "CONFIDENTIAL - THIS INFORMATION IS PROVIDED BY VIRAC JSC SUBJECT TO THE TERMS AND CONDITIONS OF YOUR SUBSCRIPTION CONTRACT AND IS NOT TO BE DISCLOSED.", "vi": "BẢO MẬT - THÔNG TIN NÀY ĐƯỢC CÔNG TY CỔ PHẦN NGHIÊN CỨU NGÀNH VÀ TƯ VẤN VIỆT NAM (VIRAC) CUNG CẤP THEO CÁC ĐIỀU KHOẢN VÀ ĐIỀU KIỆN CỦA HỢP ĐỒNG ĐĂNG KÝ VÀ KHÔNG ĐƯỢC CÔNG BỐ."}'
+                  >BẢO MẬT - THÔNG TIN NÀY ĐƯỢC CÔNG TY CỔ PHẦN NGHIÊN CỨU NGÀNH
+                  VÀ TƯ VẤN VIỆT NAM (VIRAC) CUNG CẤP THEO CÁC ĐIỀU KHOẢN VÀ
+                  ĐIỀU KIỆN CỦA HỢP ĐỒNG ĐĂNG KÝ VÀ KHÔNG ĐƯỢC CÔNG BỐ.</span
+                >
               </p>
               <p class="mb-2">
-                <span data-lang='{"en": "Right to use, cite and extract data and information: ", "vi": "Quyền sử dụng và trích nguồn thông tin và dữ liệu: "}'>Quyền sử dụng và trích nguồn thông tin và dữ liệu: </span>
+                <span
+                  data-lang='{"en": "Right to use, cite and extract data and information: ", "vi": "Quyền sử dụng và trích nguồn thông tin và dữ liệu: "}'
+                  >Quyền sử dụng và trích nguồn thông tin và dữ liệu:
+                </span>
               </p>
               <p class="mb-2">
-                <span data-lang='{"en": "-	VIRAC agrees to Client/User a non – exclusive and non – transferable right to cite, post, copy, organize, translate data and information, create derivative products from the data and information including market, industry or business analysis reports, notes, compilations, studies or similar products for Client’s internal use only. However, in all cases, Client/User is required to quote the source when using any information, data, image from VIRACE – Platform and VIRACE Consolidate Company Analysis Report, for example "Source: VIRAC" or "Source: VIRACE".", "vi": "-	VIRAC đồng ý cho Khách hàng/Người dùng một quyền không độc quyền, không chuyển nhượng để trích dẫn, đăng tải, sao chép, sắp xếp, dịch thuật dữ liệu và thông tin, tạo ra các sản phẩm phái sinh từ dữ liệu và thông tin chỉ cho mục đích sử dụng nội bộ của Khách hàng bao gồm báo cáo phân tích thị trường, báo cáo phân tích ngành, báo cáo phân tích doanh nghiệp, ghi chú, biên soạn, nghiên cứu hoặc các sản phẩm tương tự của Khách hàng. Tuy nhiên, trong tất cả các trường hợp, Khách hàng/Người dùng cần trích nguồn khi sử dụng bất kỳ thông tin, dữ liệu được khai thác từ Báo cáo phân tích tổng hợp thông tin doanh nghiệp của VIRACE với tên nguồn cụ thể, ví dụ “Nguồn: VIRAC” hoặc "Nguồn: VIRACE"."}'>-	VIRAC đồng ý cho Khách hàng/Người dùng một quyền không độc quyền, không chuyển nhượng để trích dẫn, đăng tải, sao chép, sắp xếp, dịch thuật dữ liệu và thông tin, tạo ra các sản phẩm phái sinh từ dữ liệu và thông tin chỉ cho mục đích sử dụng nội bộ của Khách hàng bao gồm báo cáo phân tích thị trường, báo cáo phân tích ngành, báo cáo phân tích doanh nghiệp, ghi chú, biên soạn, nghiên cứu hoặc các sản phẩm tương tự của Khách hàng. Tuy nhiên, trong tất cả các trường hợp, Khách hàng/Người dùng cần trích nguồn khi sử dụng bất kỳ thông tin, dữ liệu được khai thác từ Báo cáo phân tích tổng hợp thông tin doanh nghiệp của VIRACE với tên nguồn cụ thể, ví dụ “Nguồn: VIRAC” hoặc "Nguồn: VIRACE".</span>
+                <span
+                  data-lang='{"en": "- VIRAC agrees to Client/User a non - exclusive and non - transferable right to cite, post, copy, organize, translate data and information, create derivative products from the data and information including market, industry or business analysis reports, notes, compilations, studies or similar products for Clients internal use only. However, in all cases, Client/User is required to quote the source when using any information, data, image from VIRACE - Platform and VIRACE Consolidate Company Analysis Report, for example \"Source: VIRAC\" or \"Source: VIRACE\".",
+                "vi": "- VIRAC đồng ý cho Khách hàng/Người dùng một quyền không độc quyền, không chuyển nhượng để trích dẫn, đăng tải, sao chép, sắp xếp, dịch thuật dữ liệu và thông tin, tạo ra các sản phẩm phái sinh từ dữ liệu và thông tin chỉ cho mục đích sử dụng nội bộ của Khách hàng bao gồm báo cáo phân tích thị trường, báo cáo phân tích ngành, báo cáo phân tích doanh nghiệp, ghi chú, biên soạn, nghiên cứu hoặc các sản phẩm tương tự của Khách hàng. Tuy nhiên, trong tất cả các trường hợp, Khách hàng/Người dùng cần trích nguồn khi sử dụng bất kỳ thông tin, dữ liệu được khai thác từ Báo cáo phân tích tổng hợp thông tin doanh nghiệp của VIRACE với tên nguồn cụ thể, ví dụ \"Nguồn: VIRAC\" hoặc \"Nguồn: VIRACE\""}'
+                  >- VIRAC đồng ý cho Khách hàng/Người dùng một quyền không độc
+                  quyền, không chuyển nhượng để trích dẫn, đăng tải, sao chép,
+                  sắp xếp, dịch thuật dữ liệu và thông tin, tạo ra các sản phẩm
+                  phái sinh từ dữ liệu và thông tin chỉ cho mục đích sử dụng nội
+                  bộ của Khách hàng bao gồm báo cáo phân tích thị trường, báo
+                  cáo phân tích ngành, báo cáo phân tích doanh nghiệp, ghi chú,
+                  biên soạn, nghiên cứu hoặc các sản phẩm tương tự của Khách
+                  hàng. Tuy nhiên, trong tất cả các trường hợp, Khách hàng/Người
+                  dùng cần trích nguồn khi sử dụng bất kỳ thông tin, dữ liệu
+                  được khai thác từ Báo cáo phân tích tổng hợp thông tin doanh
+                  nghiệp của VIRACE với tên nguồn cụ thể, ví dụ “Nguồn: VIRAC”
+                  hoặc "Nguồn: VIRACE".</span
+                >
               </p>
               <p>
-                <span data-lang='{"en": "-	Client/User is prohibited to use, copy, share, disclose or provide either orally or in writing or any other method, in whole or in part, any data, information, image, picture, content, function, promotion, contract, trademarks, brand, trade names, service marks, data sources, user guide/user manual, or any other hard or soft document of VIRAC, VIRACE – Platform or VIRACE Consolidate Company Analysis Report for purposes other than those internal purposes stated above, including spreading information to the public or any third party through any channel and by any method, and/or creating content for news, reviews, publications, releases, or similar products about VIRACE – Platform, VIRAC, and VIRACE Consolidate Company Analysis Report for internal use or any third party without written consent from VIRAC.", "vi": "-	Khách hàng/Người dùng không được phép sử dụng, sao chép, chia sẻ, tiết lộ hoặc cung cấp bằng lời nói hoặc bằng văn bản hoặc bất cứ hình thức nào khác bất kỳ dữ liệu, thông tin, hình ảnh, nội dung, chức năng hệ thống, thông tin khuyến mại, hợp đồng, thương hiệu, nhãn hiệu, tên thương mại, dấu hiệu dịch vụ, nguồn cơ sở dữ liệu và toàn bộ hoặc một phần nội dung tài liệu hướng dẫn sử dụng và các tài liệu liên quan khác của VIRAC, Hệ thống VIRACE và BÁO CÁO PHÂN TÍCH TỔNG HỢP THÔNG TIN DOANH NGHIỆP của VIRACE cho các mục đích ngoài mục đích sử dụng nội bộ nêu trên, bao gồm phát tán thông tin trên mọi loại kênh thông tin, kênh truyền thông và bằng mọi hình thức, hoặc/và tạo ra nội dung cho các bài báo, bài nhận định, hoặc các xuất bản, phát hành, ấn phẩm khác về VIRAC, Hệ thống VIRACE và Báo cáo phân tích tổng hợp thông tin doanh nghiệp của VIRACE cho nội bộ hoặc cho các bên thứ ba khi chưa có sự chấp thuận trước bằng văn bản của VIRAC."}'>-	Khách hàng/Người dùng không được phép sử dụng, sao chép, chia sẻ, tiết lộ hoặc cung cấp bằng lời nói hoặc bằng văn bản hoặc bất cứ hình thức nào khác bất kỳ dữ liệu, thông tin, hình ảnh, nội dung, chức năng hệ thống, thông tin khuyến mại, hợp đồng, thương hiệu, nhãn hiệu, tên thương mại, dấu hiệu dịch vụ, nguồn cơ sở dữ liệu và toàn bộ hoặc một phần nội dung tài liệu hướng dẫn sử dụng và các tài liệu liên quan khác của VIRAC, Hệ thống VIRACE và BÁO CÁO PHÂN TÍCH TỔNG HỢP THÔNG TIN DOANH NGHIỆP của VIRACE cho các mục đích ngoài mục đích sử dụng nội bộ nêu trên, bao gồm phát tán thông tin trên mọi loại kênh thông tin, kênh truyền thông và bằng mọi hình thức, hoặc/và tạo ra nội dung cho các bài báo, bài nhận định, hoặc các xuất bản, phát hành, ấn phẩm khác về VIRAC, Hệ thống VIRACE và Báo cáo phân tích tổng hợp thông tin doanh nghiệp của VIRACE cho nội bộ hoặc cho các bên thứ ba khi chưa có sự chấp thuận trước bằng văn bản của VIRAC.</span>
+                <span
+                  data-lang='{"en": "- Client/User is prohibited to use, copy, share, disclose or provide either orally or in writing or any other method, in whole or in part, any data, information, image, picture, content, function, promotion, contract, trademarks, brand, trade names, service marks, data sources, user guide/user manual, or any other hard or soft document of VIRAC, VIRACE - Platform or VIRACE Consolidate Company Analysis Report for purposes other than those internal purposes stated above, including spreading information to the public or any third party through any channel and by any method, and/or creating content for news, reviews, publications, releases, or similar products about VIRACE - Platform, VIRAC, and VIRACE Consolidate Company Analysis Report for internal use or any third party without written consent from VIRAC.", "vi": "- Khách hàng/Người dùng không được phép sử dụng, sao chép, chia sẻ, tiết lộ hoặc cung cấp bằng lời nói hoặc bằng văn bản hoặc bất cứ hình thức nào khác bất kỳ dữ liệu, thông tin, hình ảnh, nội dung, chức năng hệ thống, thông tin khuyến mại, hợp đồng, thương hiệu, nhãn hiệu, tên thương mại, dấu hiệu dịch vụ, nguồn cơ sở dữ liệu và toàn bộ hoặc một phần nội dung tài liệu hướng dẫn sử dụng và các tài liệu liên quan khác của VIRAC, Hệ thống VIRACE và BÁO CÁO PHÂN TÍCH TỔNG HỢP THÔNG TIN DOANH NGHIỆP của VIRACE cho các mục đích ngoài mục đích sử dụng nội bộ nêu trên, bao gồm phát tán thông tin trên mọi loại kênh thông tin, kênh truyền thông và bằng mọi hình thức, hoặc/và tạo ra nội dung cho các bài báo, bài nhận định, hoặc các xuất bản, phát hành, ấn phẩm khác về VIRAC, Hệ thống VIRACE và Báo cáo phân tích tổng hợp thông tin doanh nghiệp của VIRACE cho nội bộ hoặc cho các bên thứ ba khi chưa có sự chấp thuận trước bằng văn bản của VIRAC."}'
+                  >- Khách hàng/Người dùng không được phép sử dụng, sao chép,
+                  chia sẻ, tiết lộ hoặc cung cấp bằng lời nói hoặc bằng văn bản
+                  hoặc bất cứ hình thức nào khác bất kỳ dữ liệu, thông tin, hình
+                  ảnh, nội dung, chức năng hệ thống, thông tin khuyến mại, hợp
+                  đồng, thương hiệu, nhãn hiệu, tên thương mại, dấu hiệu dịch
+                  vụ, nguồn cơ sở dữ liệu và toàn bộ hoặc một phần nội dung tài
+                  liệu hướng dẫn sử dụng và các tài liệu liên quan khác của
+                  VIRAC, Hệ thống VIRACE và BÁO CÁO PHÂN TÍCH TỔNG HỢP THÔNG TIN
+                  DOANH NGHIỆP của VIRACE cho các mục đích ngoài mục đích sử
+                  dụng nội bộ nêu trên, bao gồm phát tán thông tin trên mọi loại
+                  kênh thông tin, kênh truyền thông và bằng mọi hình thức,
+                  hoặc/và tạo ra nội dung cho các bài báo, bài nhận định, hoặc
+                  các xuất bản, phát hành, ấn phẩm khác về VIRAC, Hệ thống
+                  VIRACE và Báo cáo phân tích tổng hợp thông tin doanh nghiệp
+                  của VIRACE cho nội bộ hoặc cho các bên thứ ba khi chưa có sự
+                  chấp thuận trước bằng văn bản của VIRAC.</span
+                >
               </p>
             </div>
           </div>

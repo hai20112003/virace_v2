@@ -105,13 +105,16 @@ function changeLang(lang) {
     const key = element.dataset.translate;
     element.placeholder = translations[lang][key];
   });
+  closeModal();
 }
 
-function closeModal(event) {
+function openModal() {
   const modal = document.querySelector(".modal");
-  if (!modal.contains(event.target)) {
-    modal.style.display = "none";
-  }
+  modal.style.display = "block";
+}
+function closeModal() {
+  const modal = document.querySelector(".modal");
+  modal.style.display = "none";
 }
 
 const translations = {

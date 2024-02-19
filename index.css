@@ -7,12 +7,6 @@
 body{
   position: relative;
 }
-#language {
-  display: none;
-}
-#language:checked + .modal {
-  display: block !important;
-}
 .container_layout {
   background-image: url(https://web-develop.virace.vn/static/media/login.31ffb97c.png);
   background-color: #01103d;
