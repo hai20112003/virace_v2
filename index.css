@@ -58,7 +58,7 @@ header {
 }
 
 .header .logo img {
-  max-width: 100%;
+  max-width: 101px;
   height: 46px;
 }
 
@@ -132,6 +132,7 @@ header {
 }
 
 .header .header-nav .header-language .modelLanguage .img {
+  cursor: pointer;
   display: flex;
   gap: 4px;
   align-items: center;

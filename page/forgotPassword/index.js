@@ -2,7 +2,7 @@ const email = document.getElementById("email");
 const formLogin = document.getElementById('formLogin');
 let langSelect = "vi";
 const lang = localStorage.getItem("lang");
-
+let open_modal_lang = true;
 function showError(input, messageKey, lang) {
   const formControl = input.closest(".form-control-input");
   formControl.className = 'form-control-input error';
@@ -88,7 +88,13 @@ function changeLang(lang) {
 
 function openModal() {
   const modal = document.querySelector(".modal");
-  modal.style.display = "block";
+  if(open_modal_lang){
+    open_modal_lang = false  
+    modal.style.display = "block";
+  } else{
+    open_modal_lang = true  
+    modal.style.display = "none";
+  }
 }
 function closeModal() {
   const modal = document.querySelector(".modal");

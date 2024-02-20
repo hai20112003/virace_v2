@@ -130,7 +130,6 @@ function changeLang(lang) {
 }
 
 function openModal() {
-  console.log(1);
   const modal = document.querySelector(".modal");
   if(open_modal_lang){
     open_modal_lang = false  

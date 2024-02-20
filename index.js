@@ -25,13 +25,3 @@ function closeModal(event) {
     modal.style.display = 'none';
   }
 }
-
-
-$('.openmodale').click(function (e) {
-  e.preventDefault();
-  $('.modale').addClass('opened');
-});
-$('.closemodale').click(function (e) {
-  e.preventDefault();
-  $('.modale').removeClass('opened');
-});

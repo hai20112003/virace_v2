@@ -2,7 +2,7 @@ function home() {
   window.location.href = "https://viracresearch.com/trang-chu/";
 }
 const lang = localStorage.getItem("lang");
-
+let open_modal_lang = true;
 function changeLang(lang) {
   langSelect = lang;
   const elements = document.querySelectorAll("[data-lang]");
@@ -29,7 +29,13 @@ function changeLang(lang) {
 
 function openModal() {
   const modal = document.querySelector(".modal");
-  modal.style.display = "block";
+  if(open_modal_lang){
+    open_modal_lang = false  
+    modal.style.display = "block";
+  } else{
+    open_modal_lang = true  
+    modal.style.display = "none";
+  }
 }
 function closeModal() {
   const modal = document.querySelector(".modal");

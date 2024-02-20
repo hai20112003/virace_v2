@@ -2,7 +2,7 @@ const confirmPassword = document.getElementById("confirmPassword");
 const password = document.getElementById("password");
 const formChange = document.getElementById('formChange');
 const lang = localStorage.getItem("lang");
-
+let open_modal_lang = true;
 let langSelect = "vi";
 function showError(input, messageKey, lang) {
   const formControl = input.closest(".form-control-input");
@@ -86,7 +86,13 @@ function changeLang(lang) {
 
 function openModal() {
   const modal = document.querySelector(".modal");
-  modal.style.display = "block";
+  if(open_modal_lang){
+    open_modal_lang = false  
+    modal.style.display = "block";
+  } else{
+    open_modal_lang = true  
+    modal.style.display = "none";
+  }
 }
 function closeModal() {
   const modal = document.querySelector(".modal");
