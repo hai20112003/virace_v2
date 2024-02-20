@@ -1,0 +1,32 @@
+.faqs-search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.faqs-search-bar > .input_search {
+  text-align: center;
+  width: 70%;
+}
+
+.faqs-search-bar > .input_search > input {
+  border: none !important;
+  background: rgba(176, 188, 221, 0.48) !important;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #fff !important;
+  margin: 0;
+  width: 100%;
+  flex: 1 0 auto;
+  border: none;
+  outline: 0;
+  text-align: left;
+  padding: 13.5px 1.875rem;
+  border-radius: 5px;
+  box-shadow: none;
+  height: 44px;
+}
+::placeholder {
+  color: #8795b9;
+}

@@ -1,63 +1,15 @@
-const confirmPassword = document.getElementById("confirmPassword");
-const password = document.getElementById("password");
-const formChange = document.getElementById('formChange');
-let langSelect = "vi";
-function showError(input, messageKey, lang) {
-  const formControl = input.closest(".form-control");
-  formControl.className = 'form-control error';
-
-  const small = formControl.parentElement.querySelector("small");
-  small.innerText = getTranslatedMessage(messageKey, lang);
-}
-function getTranslatedMessage(key, lang) {
-  const translation = translations[lang];
-  return translation ? translation[key] || key : key;
-}
-function showSucces(input) {
-  const formControl = input.parentElement;
-  formControl.className = 'form-control success';
-}
-
-function getFieldName(input) {
-  return input.id.charAt(0).toUpperCase() + input.id.slice(1);
-}
-function checkRequired(inputArr) {
-  inputArr.forEach(function (input) {
-    if (input.value.trim() === "") {
-      showError(input, "required_field", langSelect);
-    } else {
-      showSucces(input);
-    }
-  });
-}
-function checkPasswordMatch(input1, input2) {
-  if(input1.value !== input2.value) {
-      showError(input2, "password_mismatch", langSelect);
-  }
-}
-formChange.addEventListener("submit", function (e) {
-  e.preventDefault();
-  const smallElement = document.getElementsByClassName("error");
-  smallElement.innerText = "";
-  checkRequired([password, confirmPassword]);
-  checkPasswordMatch(password, confirmPassword);
-});
-function clickIsChecked(isChecked) {
-  const falseElement = document.querySelector(".false");
-  const trueElement = document.querySelector(".true");
-  if (isChecked) {
-    falseElement.style.display = "none";
-    trueElement.style.display = "block";
-  } else {
-    falseElement.style.display = "block";
-    trueElement.style.display = "none";
-  }
-}
-
 function home() {
   window.location.href = "https://viracresearch.com/trang-chu/";
 }
-
+const lang = localStorage.getItem("lang");
+const translations = {
+  en: {
+    input_placeholder: "Input question(s)...",
+  },
+  vi: {
+    input_placeholder: "Nhập các câu hỏi cần hỏi...",
+  },
+};
 function changeLang(lang) {
   langSelect = lang;
   const elements = document.querySelectorAll("[data-lang]");
@@ -78,6 +30,7 @@ function changeLang(lang) {
     const key = element.dataset.translate;
     element.placeholder = translations[lang][key];
   });
+  localStorage.setItem("lang", lang);
   closeModal();
 }
 
@@ -90,21 +43,9 @@ function closeModal() {
   modal.style.display = "none";
 }
 
-const translations = {
-  en: {
-    password_placeholder: "Enter your password",
-    required_field: "Field is required",
-    password_mismatch: "Password is incorrect.",
-    confirm_pass: "Password re-authentication"
-  },
-  vi: {
-    confirm_pass: "Nhập lại mật khẩu",
-    password_placeholder: "Nhập mật khẩu của bạn",
-    required_field: "Vui lòng nhập giá trị",
-    password_mismatch: "Mật khẩu không đúng."
-  },
-};
-
+function news() {
+  window.location.href = "http://online.gov.vn/Home/WebDetails/86982?AspxAutoDetectCookieSupport=1";
+}
 $('.openmodale').click(function (e) {
   e.preventDefault();
   $('.modale_disclaimer').addClass('opened');
@@ -124,7 +65,10 @@ $('.closemodale').click(function (e) {
   $('.modale_confidentiality').removeClass('opened');
 });
 
-
-function news() {
-  window.location.href = "http://online.gov.vn/Home/WebDetails/86982?AspxAutoDetectCookieSupport=1";
+if (lang) {
+  changeLang(lang);
+} else {
+  changeLang("vi");
 }
+
+

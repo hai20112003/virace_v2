@@ -2,6 +2,7 @@ const email = document.getElementById("email");
 const password = document.getElementById("password");
 const formLogin = document.getElementById("formLogin");
 let langSelect = "vi";
+const lang = localStorage.getItem("lang");
 function showError(input, messageKey, lang) {
   const formControl = input.closest(".form-control");
   formControl.classList.add("error");
@@ -31,7 +32,6 @@ function getFieldName(input) {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
 function checkRequired(inputArr) {
-  console.log(inputArr);
   inputArr.forEach(function (input) {
     if (input.value.trim() === "") {
       showError(input, "required_field", langSelect);
@@ -43,7 +43,6 @@ function checkRequired(inputArr) {
 formLogin.addEventListener("submit", function (e) {
   e.preventDefault();
   const smallElement = document.getElementsByClassName("error");
-  console.log(smallElement);
   smallElement.innerText = "";
   checkRequired([email, password]);
   checkEmail(email);
@@ -64,7 +63,7 @@ function home() {
   window.location.href = "https://viracresearch.com/trang-chu/";
 }
 
-function changeLang(lang, event) {
+function changeLang(lang) {
   langSelect = lang;
   const elements = document.querySelectorAll("[data-lang]");
   elements.forEach((element) => {
@@ -85,6 +84,7 @@ function changeLang(lang, event) {
     const key = element.dataset.translate;
     element.placeholder = translations[lang][key];
   });
+  localStorage.setItem("lang", lang);
   closeModal();
 }
 
@@ -139,7 +139,13 @@ $(".closemodale").click(function (e) {
   $(".modale_confidentiality").removeClass("opened");
 });
 
-
 function news() {
-  window.location.href = "http://online.gov.vn/Home/WebDetails/86982?AspxAutoDetectCookieSupport=1";
+  window.location.href =
+    "http://online.gov.vn/Home/WebDetails/86982?AspxAutoDetectCookieSupport=1";
+}
+
+if (lang) {
+  changeLang(lang);
+} else {
+  changeLang("vi");
 }

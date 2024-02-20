@@ -4,16 +4,14 @@ const firstName = document.getElementById("firstName");
 const company = document.getElementById("company");
 const phoneNumber = document.getElementById("phoneNumber");
 const presenter = document.getElementById("presenter");
+const lang = localStorage.getItem("lang");
 
 const formRegister = document.getElementById("formRegister");
 let langSelect = "vi";
 function showError(input, messageKey, lang) {
   const formControl = input.closest(".form-control");
-  console.log(formControl);
   formControl.classList.add("error");
-  
   const small = formControl.parentElement.querySelector("small");
-  console.log(small);
   small.innerText = getTranslatedMessage(messageKey, lang);
 }
 function getTranslatedMessage(key, lang) {
@@ -49,7 +47,6 @@ function getFieldName(input) {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
 function checkRequired(inputArr) {
-  console.log(inputArr);
   inputArr.forEach(function (input) {
     if (input.value.trim() === "") {
       showError(input, "required_field", langSelect);
@@ -61,7 +58,6 @@ function checkRequired(inputArr) {
 formRegister.addEventListener("submit", function (e) {
   e.preventDefault();
   const smallElement = document.getElementsByClassName("error");
-  console.log(smallElement);
   smallElement.innerText = "";
   checkRequired([email, phoneNumber, lastName, firstName]);
   checkPhone(phoneNumber);
@@ -105,6 +101,7 @@ function changeLang(lang) {
     const key = element.dataset.translate;
     element.placeholder = translations[lang][key];
   });
+  localStorage.setItem("lang", lang);
   closeModal();
 }
 
@@ -172,4 +169,10 @@ $('.closemodale').click(function (e) {
 
 function news() {
   window.location.href = "http://online.gov.vn/Home/WebDetails/86982?AspxAutoDetectCookieSupport=1";
+}
+
+if (lang) {
+  changeLang(lang);
+} else {
+  changeLang("vi");
 }

@@ -1,6 +1,8 @@
 const email = document.getElementById("email");
 const formLogin = document.getElementById('formLogin');
 let langSelect = "vi";
+const lang = localStorage.getItem("lang");
+
 function showError(input, messageKey, lang) {
   const formControl = input.closest(".form-control");
   formControl.classList.add("error");
@@ -30,7 +32,6 @@ function getFieldName(input) {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
 function checkRequired(inputArr) {
-  console.log(inputArr);
   inputArr.forEach(function (input) {
     if (input.value.trim() === "") {
       showError(input, "required_field", langSelect);
@@ -82,6 +83,7 @@ function changeLang(lang) {
     const key = element.dataset.translate;
     element.placeholder = translations[lang][key];
   });
+  localStorage.setItem("lang", lang);
   closeModal();
 }
 
@@ -129,4 +131,9 @@ $('.closemodale').click(function (e) {
 
 function news() {
   window.location.href = "http://online.gov.vn/Home/WebDetails/86982?AspxAutoDetectCookieSupport=1";
+}
+if (lang) {
+  changeLang(lang);
+} else {
+  changeLang("vi");
 }

@@ -1,6 +1,8 @@
 const confirmPassword = document.getElementById("confirmPassword");
 const password = document.getElementById("password");
 const formChange = document.getElementById('formChange');
+const lang = localStorage.getItem("lang");
+
 let langSelect = "vi";
 function showError(input, messageKey, lang) {
   const formControl = input.closest(".form-control");
@@ -78,6 +80,7 @@ function changeLang(lang) {
     const key = element.dataset.translate;
     element.placeholder = translations[lang][key];
   });
+  localStorage.setItem("lang", lang);
   closeModal();
 }
 
@@ -127,4 +130,9 @@ $('.closemodale').click(function (e) {
 
 function news() {
   window.location.href = "http://online.gov.vn/Home/WebDetails/86982?AspxAutoDetectCookieSupport=1";
+}
+if (lang) {
+  changeLang(lang);
+} else {
+  changeLang("vi");
 }
