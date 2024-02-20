@@ -130,7 +130,9 @@ header {
   align-items: center;
   padding: 0 15px 0 20px;
 }
-
+.header .header-nav .header-language .modelLanguage svg {
+ fill: white;
+}
 .header .header-nav .header-language .modelLanguage .img {
   cursor: pointer;
   display: flex;
