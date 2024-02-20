@@ -541,3 +541,11 @@ small {
   max-width: 800px;
   margin-left: -390px;
 }
+.modale_copyright .modal-dialog{
+  max-width: 500px;
+  margin-left: -260px;
+}
+.login form .form-control input:-webkit-autofill {
+    background-color: rgba(100,100,100,.4);
+    color: rgba(0,0,0,.87);
+}
