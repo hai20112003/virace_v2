@@ -4,9 +4,8 @@ let langSelect = "vi";
 const lang = localStorage.getItem("lang");
 
 function showError(input, messageKey, lang) {
-  const formControl = input.closest(".form-control");
-  formControl.classList.add("error");
-
+  const formControl = input.closest(".form-control-input");
+  formControl.className = 'form-control-input error';
   const small = formControl.parentElement.querySelector("small");
   small.innerText = getTranslatedMessage(messageKey, lang);
 }
@@ -16,13 +15,13 @@ function getTranslatedMessage(key, lang) {
 }
 function showSucces(input) {
   const formControl = input.parentElement;
-  formControl.className = 'form-control success';
+  formControl.className = 'form-control-input success';
 }
 
 function checkEmail(input) {
   const re =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  if (re.test(input.value.trim())) {
+    if (re.test(input.value.trim())) {
     showSucces(input);
   } else {
     showError(input, "email_invalid", langSelect);
@@ -108,25 +107,6 @@ const translations = {
     required_field: "Vui lòng nhập giá trị",
   },
 };
-
-$('.openmodale').click(function (e) {
-  e.preventDefault();
-  $('.modale_disclaimer').addClass('opened');
-});
-$('.closemodale').click(function (e) {
-  e.preventDefault();
-  $('.modale_disclaimer').removeClass('opened');
-});
-
-
-$('.confidentiality').click(function (e) {
-  e.preventDefault();
-  $('.modale_confidentiality').addClass('opened');
-});
-$('.closemodale').click(function (e) {
-  e.preventDefault();
-  $('.modale_confidentiality').removeClass('opened');
-});
 
 
 function news() {

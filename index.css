@@ -146,12 +146,14 @@ header {
 .header .header-nav .header-language .modelLanguage .img img {
   width: 28px;
   height: 20px;
+  cursor: pointer;
   object-fit: cover;
 }
 
 .header .header-nav .header-language .modal {
   position: absolute;
-  min-width: 5rem;
+  width: max-content;
+  height: max-content;
   padding: 0;
   margin: 0;
   transform: translate3d(-16px, 29px, 0px) !important;
@@ -200,6 +202,7 @@ header {
   }
 
   .header .header-language .modelLanguage {
+    cursor: pointer;
     padding: 0 10px;
   }
 
@@ -239,30 +242,29 @@ header {
 
 .login form h1 {
   color: #3bdbfd;
-  margin-bottom: 2.5rem;
   font-size: 1.875rem;
   font-weight: 500;
   letter-spacing: 0.025rem;
   text-transform: uppercase;
 }
 
-.login form .form-control {
+.login form .form-control-input {
   width: 100%;
   position: relative;
 }
 
-.login form .form-control .icon {
+.login form .form-control-input .icon {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   color: rgba(174, 193, 228, 0.6);
 }
 
-.login form .form-control .icon svg {
+.login form .form-control-input .icon svg {
   fill: rgba(174, 193, 228, 0.6);
 }
 
-.login form .form-control > input {
+.login form .form-control-input > input {
   border: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   background: 0 0;
@@ -401,13 +403,14 @@ header {
 }
 
 .login .copyright a {
-  text-decoration: none;
-  color: #5d677a;
+  cursor: pointer;
+  text-decoration: none !important;
+  color: #5d677a !important;
   transition: color .2s ease;
 }
 .login .copyright a:hover {
-  text-decoration: underline;
-  color: #3bdbdf;
+  text-decoration: underline !important;
+  color: #3bdbdf !important;
 }
 .login .copyright .img-noti {
   margin-top: 1.25rem;
@@ -429,7 +432,7 @@ small {
   text-align: left;
   color: red;
 }
-.form-control.success ~ small {
+.form-control-input.success ~ small {
   display: none;
 }
 
@@ -446,7 +449,7 @@ small {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 700;
 }
-
+/* 
 .modal{
   position: absolute;
   top: 50%;
@@ -456,7 +459,7 @@ small {
   transition: margin 0.5s ease-in-out;
   z-index: 1000;
   padding: 0 20px;
-}
+} */
 
 .disclaimer{
   display: none;
@@ -475,77 +478,49 @@ small {
 .btn-close:hover {
   color: #919191;
 }
-.modale:before {
-  content: "";
-  display: none;
-  background: rgba(0, 0, 0, 0.6);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 600;
-}
-.opened:before {
-  display: block;
-}
-.opened .modal-dialog {
-  -webkit-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  transform: translate(0, 0);
-  top: 20%;
-}
-.modal-dialog {
-  background: #172c64;
-  border: #333333 solid 0px;
-  border-radius: 5px;
-  text-align:center;
-  position: fixed;
-  left: 50%;
-  top: -100%;
-  z-index: 900;
-  box-shadow:0 5px 10px rgba(0,0,0,0.3);
-  -webkit-transform: translate(0, -500%);
-  -ms-transform: translate(0, -500%);
-  transform: translate(0, -500%);
-  -webkit-transition: -webkit-transform 0.6s ease-out;
-  -moz-transition: -moz-transform 0.6s ease-out;
-  -o-transition: -o-transform 0.6s ease-out;
-  transition: transform 0.6s ease-out;
-}
-.modal-body {
-  padding: 20px;
-  text-align: start;
-}
-.modal-header{
-  padding: 10px 20px;
-}
-.modal-header {
-  border-bottom: #eeeeee solid 1px;
-}
-.modal-header h2 {
-  font-size: 20px;
-}
-
 .mb-2, .my-2 {
   margin-bottom: 0.5rem !important;
 }
-
-.modale_disclaimer .modal-dialog{
-  max-width: 500px;
-  margin-left: -260px;
+.login form .form-control-input input:-webkit-autofill {
+  -webkit-text-fill-color: #fff !important;
+  -webkit-background-clip: text;
 }
 
+.common-modal .modal-content {
+  background-color: #172c64;
+  color: #B6C4DE;
+}
 
-.modale_confidentiality .modal-dialog{
-  max-width: 800px;
-  margin-left: -390px;
+.common-modal .modal-header h5.modal-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  text-transform: uppercase;
 }
-.modale_copyright .modal-dialog{
-  max-width: 500px;
-  margin-left: -260px;
+
+.common-modal .modal-header {
+  justify-content: center;
+  position: relative;
+  border-bottom: 1px solid rgba(144, 155, 175, 0.3);
 }
-.login form .form-control input:-webkit-autofill {
-    background-color: rgba(100,100,100,.4);
-    color: rgba(0,0,0,.87);
+.common-modal .modal-header .material-icons.close-btn {
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+}
+
+.common-modal .modal-header .icon-close {
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: "Roboto";
 }

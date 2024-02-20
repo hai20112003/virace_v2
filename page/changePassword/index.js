@@ -5,8 +5,8 @@ const lang = localStorage.getItem("lang");
 
 let langSelect = "vi";
 function showError(input, messageKey, lang) {
-  const formControl = input.closest(".form-control");
-  formControl.className = 'form-control error';
+  const formControl = input.closest(".form-control-input");
+  formControl.className = 'form-control-input error';
 
   const small = formControl.parentElement.querySelector("small");
   small.innerText = getTranslatedMessage(messageKey, lang);
@@ -17,7 +17,7 @@ function getTranslatedMessage(key, lang) {
 }
 function showSucces(input) {
   const formControl = input.parentElement;
-  formControl.className = 'form-control success';
+  formControl.className = 'form-control-input success';
 }
 
 function getFieldName(input) {
@@ -107,25 +107,6 @@ const translations = {
     password_mismatch: "Mật khẩu không đúng."
   },
 };
-
-$('.openmodale').click(function (e) {
-  e.preventDefault();
-  $('.modale_disclaimer').addClass('opened');
-});
-$('.closemodale').click(function (e) {
-  e.preventDefault();
-  $('.modale_disclaimer').removeClass('opened');
-});
-
-
-$('.confidentiality').click(function (e) {
-  e.preventDefault();
-  $('.modale_confidentiality').addClass('opened');
-});
-$('.closemodale').click(function (e) {
-  e.preventDefault();
-  $('.modale_confidentiality').removeClass('opened');
-});
 
 
 function news() {

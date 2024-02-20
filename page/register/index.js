@@ -5,11 +5,11 @@ const company = document.getElementById("company");
 const phoneNumber = document.getElementById("phoneNumber");
 const presenter = document.getElementById("presenter");
 const lang = localStorage.getItem("lang");
-
+let open_modal_lang = true;
 const formRegister = document.getElementById("formRegister");
 let langSelect = "vi";
 function showError(input, messageKey, lang) {
-  const formControl = input.closest(".form-control");
+  const formControl = input.closest(".form-control-input");
   formControl.classList.add("error");
   const small = formControl.parentElement.querySelector("small");
   small.innerText = getTranslatedMessage(messageKey, lang);
@@ -20,7 +20,7 @@ function getTranslatedMessage(key, lang) {
 }
 function showSucces(input) {
   const formControl = input.parentElement;
-  formControl.className = "form-control success";
+  formControl.className = "form-control-input success";
 }
 
 function checkEmail(input) {
@@ -81,6 +81,30 @@ function home() {
 function news() {
   window.location.href = "http://online.gov.vn/Home/WebDetails/86982?AspxAutoDetectCookieSupport=1";
 }
+const translations = {
+  en: {
+    email_placeholder: "Enter your email",
+    email_invalid: "Email is not valid",
+    phone_number_invalid: "Phone number is not valid",
+    required_field: "Field is required",
+    phoneNumber_placeholder: "Enter phone number",
+    lastName: "Last name",
+    firstName: "First name",
+    company: "Company / Place of work",
+    presenter: "References Email"
+  },
+  vi: {
+    email_placeholder: "Nhập email của bạn",
+    phoneNumber_placeholder: "Nhập số điện thoại của bạn",
+    lastName: "Họ",
+    firstName: "Tên",
+    presenter: "Email người giới thiệu",
+    company: "Công ty/ Nơi công tác",
+    email_invalid: "Email không hợp lệ",
+    required_field: "Vui lòng nhập giá trị",
+    phone_number_invalid: "Số điện thoại không hợp lệ",
+  },
+};
 function changeLang(lang) {
   langSelect = lang;
   const elements = document.querySelectorAll("[data-lang]");
@@ -106,38 +130,20 @@ function changeLang(lang) {
 }
 
 function openModal() {
+  console.log(1);
   const modal = document.querySelector(".modal");
-  modal.style.display = "block";
+  if(open_modal_lang){
+    open_modal_lang = false  
+    modal.style.display = "block";
+  } else{
+    open_modal_lang = true  
+    modal.style.display = "none";
+  }
 }
 function closeModal() {
   const modal = document.querySelector(".modal");
   modal.style.display = "none";
 }
-
-const translations = {
-  en: {
-    email_placeholder: "Enter your email",
-    email_invalid: "Email is not valid",
-    phone_number_invalid: "Phone number is not valid",
-    required_field: "Field is required",
-    phoneNumber_placeholder: "Enter phone number",
-    lastName: "Last name",
-    firstName: "First name",
-    company: "Company / Place of work",
-    presenter: "References Email"
-  },
-  vi: {
-    email_placeholder: "Nhập email của bạn",
-    phoneNumber_placeholder: "Nhập số điện thoại của bạn",
-    lastName: "Họ",
-    firstName: "Tên",
-    presenter: "Email người giới thiệu",
-    company: "Công ty/ Nơi công tác",
-    email_invalid: "Email không hợp lệ",
-    required_field: "Vui lòng nhập giá trị",
-    phone_number_invalid: "Số điện thoại không hợp lệ",
-  },
-};
 
 function togglePasswordType() {
   const passwordInput = document.getElementById("password");
@@ -147,25 +153,6 @@ function togglePasswordType() {
     passwordInput.type = "password";
   }
 }
-$('.openmodale').click(function (e) {
-  e.preventDefault();
-  $('.modale_disclaimer').addClass('opened');
-});
-$('.closemodale').click(function (e) {
-  e.preventDefault();
-  $('.modale_disclaimer').removeClass('opened');
-});
-
-
-$('.confidentiality').click(function (e) {
-  e.preventDefault();
-  $('.modale_confidentiality').addClass('opened');
-});
-$('.closemodale').click(function (e) {
-  e.preventDefault();
-  $('.modale_confidentiality').removeClass('opened');
-});
-
 
 function news() {
   window.location.href = "http://online.gov.vn/Home/WebDetails/86982?AspxAutoDetectCookieSupport=1";

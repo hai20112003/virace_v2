@@ -4,10 +4,10 @@ const formLogin = document.getElementById("formLogin");
 let langSelect = "vi";
 const lang = localStorage.getItem("lang");
 function showError(input, messageKey, lang) {
-  const formControl = input.closest(".form-control");
-  formControl.classList.add("error");
-
+  const formControl = input.closest(".form-control-input");
+  formControl.className = "form-control-input error";
   const small = formControl.parentElement.querySelector("small");
+  console.log(small);
   small.innerText = getTranslatedMessage(messageKey, lang);
 }
 function getTranslatedMessage(key, lang) {
@@ -16,15 +16,18 @@ function getTranslatedMessage(key, lang) {
 }
 function showSucces(input) {
   const formControl = input.parentElement;
-  formControl.className = "form-control success";
+  formControl.className = "form-control-input success";
 }
 
 function checkEmail(input) {
   const re =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  if (re.test(input.value.trim())) {
+    console.log(re.test(input.value.trim()));
+  
+    if (re.test(input.value.trim())) {
     showSucces(input);
   } else {
+    console.log(1);
     showError(input, "email_invalid", langSelect);
   }
 }
@@ -120,32 +123,6 @@ function togglePasswordType() {
     passwordInput.type = "password";
   }
 }
-
-$(".openmodale").click(function (e) {
-  e.preventDefault();
-  $(".modale_disclaimer").addClass("opened");
-});
-$(".closemodale").click(function (e) {
-  e.preventDefault();
-  $(".modale_disclaimer").removeClass("opened");
-});
-
-$(".confidentiality").click(function (e) {
-  e.preventDefault();
-  $(".modale_confidentiality").addClass("opened");
-});
-$(".closemodale").click(function (e) {
-  e.preventDefault();
-  $(".modale_confidentiality").removeClass("opened");
-});
-$(".copyright_open").click(function (e) {
-  e.preventDefault();
-  $(".modale_copyright").addClass("opened");
-});
-$(".closemodale").click(function (e) {
-  e.preventDefault();
-  $(".modale_copyright").removeClass("opened");
-});
 function news() {
   window.location.href =
     "http://online.gov.vn/Home/WebDetails/86982?AspxAutoDetectCookieSupport=1";

@@ -39,24 +39,6 @@ function closeModal() {
 function news() {
   window.location.href = "http://online.gov.vn/Home/WebDetails/86982?AspxAutoDetectCookieSupport=1";
 }
-$('.openmodale').click(function (e) {
-  e.preventDefault();
-  $('.modale_disclaimer').addClass('opened');
-});
-$('.closemodale').click(function (e) {
-  e.preventDefault();
-  $('.modale_disclaimer').removeClass('opened');
-});
-
-
-$('.confidentiality').click(function (e) {
-  e.preventDefault();
-  $('.modale_confidentiality').addClass('opened');
-});
-$('.closemodale').click(function (e) {
-  e.preventDefault();
-  $('.modale_confidentiality').removeClass('opened');
-});
 
 if (lang) {
   changeLang(lang);
