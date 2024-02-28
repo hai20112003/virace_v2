@@ -1,11 +1,11 @@
 const email = document.getElementById("email");
-const formLogin = document.getElementById('formLogin');
+const formLogin = document.getElementById("formLogin");
 let langSelect = "vi";
 const lang = localStorage.getItem("lang");
 let open_modal_lang = true;
 function showError(input, messageKey, lang) {
   const formControl = input.closest(".form-control-input");
-  formControl.className = 'form-control-input error';
+  formControl.className = "form-control-input error";
   const small = formControl.parentElement.querySelector("small");
   small.innerText = getTranslatedMessage(messageKey, lang);
 }
@@ -15,13 +15,13 @@ function getTranslatedMessage(key, lang) {
 }
 function showSucces(input) {
   const formControl = input.parentElement;
-  formControl.className = 'form-control-input success';
+  formControl.className = "form-control-input success";
 }
 
 function checkEmail(input) {
   const re =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (re.test(input.value.trim())) {
+  if (re.test(input.value.trim())) {
     showSucces(input);
   } else {
     showError(input, "email_invalid", langSelect);
@@ -88,11 +88,11 @@ function changeLang(lang) {
 
 function openModal() {
   const modal = document.querySelector(".modal");
-  if(open_modal_lang){
-    open_modal_lang = false  
+  if (open_modal_lang) {
+    open_modal_lang = false;
     modal.style.display = "block";
-  } else{
-    open_modal_lang = true  
+  } else {
+    open_modal_lang = true;
     modal.style.display = "none";
   }
 }
@@ -114,12 +114,24 @@ const translations = {
   },
 };
 
-
 function news() {
-  window.location.href = "http://online.gov.vn/Home/WebDetails/86982?AspxAutoDetectCookieSupport=1";
+  window.location.href =
+    "http://online.gov.vn/Home/WebDetails/86982?AspxAutoDetectCookieSupport=1";
 }
 if (lang) {
   changeLang(lang);
 } else {
   changeLang("vi");
+}
+
+modal_true = true;
+function close_modal_form_true() {
+  const modal = document.querySelector("#modal_form_true");
+  modal.style.display = "none";
+}
+function open_modal_form_true() {
+  if (modal_true) {
+    const modal = document.querySelector("#modal_form_true");
+    modal.style.display = "block";
+  }
 }

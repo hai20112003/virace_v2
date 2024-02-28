@@ -251,7 +251,7 @@
               <button
                 loader_color="white"
                 class="common-button w-100 btn btn-secondary"
-                onclick="open_modal_false()"
+                onclick="open_modal_true()"
               >
                 <span data-lang='{"en": "Register", "vi": "Đăng ký"}'
                   >Đăng ký
@@ -560,19 +560,19 @@
           <div class="text-muted lead">
             <div>
               <span
-                ><span
+                ><span data-lang='{"en": "Email was used to register an account, you can ", "vi": "Email đã được sử dụng để đăng ký tài khoản, bạn có thể "}'
                   >Email đã được sử dụng để đăng ký tài khoản, bạn có thể
                 </span></span
               ><span class="text-cyan"
                 ><a href="./../login/index.html"
-                  ><span>đăng nhập </span></a
+                  ><span data-lang='{"en": "login", "vi": "đăng nhập"}'>đăng nhập </span></a
                 ></span
-              ><span><span>hoặc </span></span
+              ><span><span data-lang='{"en": " or ", "vi": "hoặc"}'>hoặc </span></span
               ><span class="text-cyan"
                 ><a href="./../forgotPassword/index.html"
-                  ><span>khôi phục mật khẩu </span></a
+                  ><span data-lang='{"en": "password recovery", "vi": "khôi phục mật khẩu "}'>khôi phục mật khẩu </span></a
                 ></span
-              ><span><span>để tiếp tục sử dụng.</span></span>
+              ><span><span data-lang='{"en": " to continue using.", "vi": "để tiếp tục sử dụng."}'>để tiếp tục sử dụng.</span></span>
             </div>
           </div>
           <p style="margin-top: 20px">
@@ -582,6 +582,7 @@
                 type="button"
                 style="margin-right: 8px; background-color: #dd3333"
                 onclick="close_modal_false()"
+                data-lang='{"en": "Agree", "vi": "Đồng ý"}'
               >
                 Đồng ý
               </button></span
@@ -719,7 +720,7 @@
           </div>
           <h2></h2>
           <div class="text-muted lead">
-            <div>
+            <div data-lang='{"en": "Ou have successfully signed up. Please check your email to receive system login password. You will be redirected to login page after 5 seconds", "vi": "Quý khách đã đăng ký thành công. Vui lòng kiểm tra email để nhận mật khẩu đăng nhập hệ thống. Quý khách sẽ được chuyển hướng tới trang đăng nhập sau 5 giây"}'>
               Quý khách đã đăng ký thành công. Vui lòng kiểm tra email để nhận
               mật khẩu đăng nhập hệ thống. Quý khách sẽ được chuyển hướng tới
               trang đăng nhập sau <span>5</span>
@@ -732,6 +733,7 @@
                 type="button"
                 style="margin-right: 8px"
                 onclick="close_modal_true()"
+                data-lang='{"en": "Agree", "vi": "Đồng ý"}'
               >
                 Đồng ý
               </button></span

@@ -512,3 +512,30 @@ small {
   position: absolute;
   right: 10px;
 }
+
+.modalForgetPass h5.modal-title {
+  width: 100%;
+  text-align: center;
+  text-align: center;
+  font-size: 19px;
+  font-weight: 700;
+  color: #222;
+  padding-left: 30px;
+}
+
+.modalForgetPass .modal-header button.close {
+  outline: none !important;
+  border: none !important;
+}
+button.close {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+}
+
+.modalForgetPass .modal-body {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #212529;
+}

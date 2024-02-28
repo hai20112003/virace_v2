@@ -184,6 +184,8 @@ function open_modal_true() {
   if (modal_true) {
     const modal = document.querySelector("#modal_true");
     modal.style.display = "block";
-    window.location.href = "http://127.0.0.1:5500/page/login/index.html"
+    setTimeout(() => {
+      window.location.href = "http://127.0.0.1:5500/page/login/index.html";
+    }, 5000);
   }
 }
