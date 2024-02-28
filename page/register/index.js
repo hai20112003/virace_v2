@@ -33,10 +33,8 @@ function checkEmail(input) {
   }
 }
 
-
 function checkPhone(input) {
-  const re =
-  /^(?:(?:\+|0{0,2})84|0[3|5|7|8|9]|84)(?:\d{8}|(\d{7}))+$/;
+  const re = /^(?:(?:\+|0{0,2})84|0[3|5|7|8|9]|84)(?:\d{8}|(\d{7}))+$/;
   if (re.test(input.value.trim())) {
     showSucces(input);
   } else {
@@ -79,7 +77,8 @@ function home() {
   window.location.href = "https://viracresearch.com/trang-chu/";
 }
 function news() {
-  window.location.href = "http://online.gov.vn/Home/WebDetails/86982?AspxAutoDetectCookieSupport=1";
+  window.location.href =
+    "http://online.gov.vn/Home/WebDetails/86982?AspxAutoDetectCookieSupport=1";
 }
 const translations = {
   en: {
@@ -91,7 +90,7 @@ const translations = {
     lastName: "Last name",
     firstName: "First name",
     company: "Company / Place of work",
-    presenter: "References Email"
+    presenter: "References Email",
   },
   vi: {
     email_placeholder: "Nhập email của bạn",
@@ -131,11 +130,11 @@ function changeLang(lang) {
 
 function openModal() {
   const modal = document.querySelector(".modal");
-  if(open_modal_lang){
-    open_modal_lang = false  
+  if (open_modal_lang) {
+    open_modal_lang = false;
     modal.style.display = "block";
-  } else{
-    open_modal_lang = true  
+  } else {
+    open_modal_lang = true;
     modal.style.display = "none";
   }
 }
@@ -154,11 +153,37 @@ function togglePasswordType() {
 }
 
 function news() {
-  window.location.href = "http://online.gov.vn/Home/WebDetails/86982?AspxAutoDetectCookieSupport=1";
+  window.location.href =
+    "http://online.gov.vn/Home/WebDetails/86982?AspxAutoDetectCookieSupport=1";
 }
 
 if (lang) {
   changeLang(lang);
 } else {
   changeLang("vi");
+}
+modal_false = true;
+function close_modal_false() {
+  const modal = document.querySelector("#modal_false");
+  modal.style.display = "none";
+}
+function open_modal_false() {
+  if (modal_false) {
+    const modal = document.querySelector("#modal_false");
+    modal.style.display = "block";
+  }
+}
+
+
+modal_true = true;
+function close_modal_true() {
+  const modal = document.querySelector("#modal_true");
+  modal.style.display = "none";
+}
+function open_modal_true() {
+  if (modal_true) {
+    const modal = document.querySelector("#modal_true");
+    modal.style.display = "block";
+    window.location.href = "http://127.0.0.1:5500/page/login/index.html"
+  }
 }

@@ -62,7 +62,18 @@
                   <div>
                     <img id="languageIcon" src="./../../image/vi.png" alt="" />
                   </div>
-                  <div><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"/></svg></div>
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24"
+                      viewBox="0 -960 960 960"
+                      width="24"
+                    >
+                      <path
+                        d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"
+                      />
+                    </svg>
+                  </div>
                 </label>
               </div>
               <div class="modal" onclick="closeModal()">
@@ -240,6 +251,7 @@
               <button
                 loader_color="white"
                 class="common-button w-100 btn btn-secondary"
+                onclick="open_modal_false()"
               >
                 <span data-lang='{"en": "Register", "vi": "Đăng ký"}'
                   >Đăng ký
@@ -467,6 +479,264 @@
               </p>
             </div>
           </div>
+        </div>
+      </div>
+      <div id="modal_false" style="display: none;">
+        <div
+          style="
+            background-color: rgba(0, 0, 0, 0.4);
+            position: fixed;
+            inset: 0px;
+            z-index: 5000;
+          "
+        ></div>
+
+        <div
+          tabindex="0"
+          class="sweet-alert"
+          style="
+            background-color: rgb(255, 255, 255);
+            outline: none;
+            width: 478px;
+            padding: 17px;
+            border-radius: 5px;
+            text-align: center;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin-left: -256px;
+            margin-top: -200px;
+            overflow: hidden;
+            z-index: 5500;
+            animation: 0.3s ease 0s 1 normal none running showSweetAlert;
+            display: block;
+          "
+        >
+          <div
+            style="
+              width: 80px;
+              height: 80px;
+              border-width: 4px;
+              border-style: solid;
+              border-color: rgb(238, 162, 54);
+              border-radius: 50%;
+              margin: 20px auto;
+              position: relative;
+              box-sizing: content-box;
+              animation: 0.75s ease 0s infinite alternate none running
+                pulseWarning;
+            "
+          >
+            <span
+              style="
+                position: absolute;
+                width: 5px;
+                height: 47px;
+                left: 50%;
+                top: 10px;
+                border-radius: 2px;
+                margin-left: -2px;
+                background-color: rgb(240, 173, 78);
+                animation: 0.75s ease 0s infinite alternate none running
+                  pulseWarningIns;
+              "
+            ></span
+            ><span
+              style="
+                position: absolute;
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                margin-left: -3px;
+                left: 50%;
+                bottom: 10px;
+                background-color: rgb(240, 173, 78);
+                animation: 0.75s ease 0s infinite alternate none running
+                  pulseWarningIns;
+              "
+            ></span>
+          </div>
+          <h2></h2>
+          <div class="text-muted lead">
+            <div>
+              <span
+                ><span
+                  >Email đã được sử dụng để đăng ký tài khoản, bạn có thể
+                </span></span
+              ><span class="text-cyan"
+                ><a href="./../login/index.html"
+                  ><span>đăng nhập </span></a
+                ></span
+              ><span><span>hoặc </span></span
+              ><span class="text-cyan"
+                ><a href="./../forgotPassword/index.html"
+                  ><span>khôi phục mật khẩu </span></a
+                ></span
+              ><span><span>để tiếp tục sử dụng.</span></span>
+            </div>
+          </div>
+          <p style="margin-top: 20px">
+            <span
+              ><button
+                class="btn btn-lg btn-success confirmBtn swal2-styled"
+                type="button"
+                style="margin-right: 8px; background-color: #dd3333"
+                onclick="close_modal_false()"
+              >
+                Đồng ý
+              </button></span
+            >
+          </p>
+        </div>
+      </div>
+      <div id="modal_true" style="display: none;">
+        <div
+          style="
+            background-color: rgba(0, 0, 0, 0.4);
+            position: fixed;
+            inset: 0px;
+            z-index: 5000;
+          "
+        ></div>
+        <div
+          tabindex="0"
+          class="sweet-alert"
+          style="
+            background-color: rgb(255, 255, 255);
+            outline: none;
+            width: 478px;
+            padding: 17px;
+            border-radius: 5px;
+            text-align: center;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin-left: -256px;
+            margin-top: -200px;
+            overflow: hidden;
+            z-index: 5500;
+            animation: 0.3s ease 0s 1 normal none running showSweetAlert;
+            display: block;
+          "
+        >
+          <div
+            style="
+              width: 80px;
+              height: 80px;
+              border-width: 4px;
+              border-style: solid;
+              border-color: rgb(76, 174, 76);
+              border-radius: 50%;
+              margin: 20px auto;
+              position: relative;
+              box-sizing: content-box;
+            "
+          >
+            <div
+              style="
+                border-radius: 120px 0px 0px 120px;
+                position: absolute;
+                width: 60px;
+                height: 100px;
+                background: white;
+                transform: rotate(-45deg);
+                top: -7px;
+                left: -33px;
+                transform-origin: 60px 60px;
+              "
+            ></div>
+            <span
+              style="
+                height: 5px;
+                background-color: rgb(92, 184, 92);
+                display: block;
+                border-radius: 2px;
+                position: absolute;
+                z-index: 2;
+                width: 25px;
+                left: 14px;
+                top: 46px;
+                transform: rotate(45deg);
+                animation: 0.75s ease 0s 1 normal none running animateSuccessTip;
+              "
+            ></span
+            ><span
+              style="
+                height: 5px;
+                background-color: rgb(92, 184, 92);
+                display: block;
+                border-radius: 2px;
+                position: absolute;
+                z-index: 2;
+                width: 47px;
+                right: 8px;
+                top: 38px;
+                transform: rotate(-45deg);
+                animation: 0.75s ease 0s 1 normal none running
+                  animateSuccessLong;
+              "
+            ></span>
+            <div
+              style="
+                width: 80px;
+                height: 80px;
+                border: 4px solid rgba(92, 184, 92, 0.2);
+                border-radius: 50%;
+                box-sizing: content-box;
+                position: absolute;
+                left: -4px;
+                top: -4px;
+                z-index: 2;
+              "
+            ></div>
+            <div
+              style="
+                width: 5px;
+                height: 90px;
+                background-color: rgb(255, 255, 255);
+                position: absolute;
+                left: 28px;
+                top: 8px;
+                z-index: 1;
+                transform: rotate(-45deg);
+              "
+            ></div>
+            <div
+              style="
+                border-radius: 0px 120px 120px 0px;
+                position: absolute;
+                width: 60px;
+                height: 120px;
+                background: white;
+                transform: rotate(-45deg);
+                top: -11px;
+                left: 30px;
+                transform-origin: 0px 60px;
+                animation: 4.25s ease-in 0s 1 normal none running
+                  rotatePlaceholder;
+              "
+            ></div>
+          </div>
+          <h2></h2>
+          <div class="text-muted lead">
+            <div>
+              Quý khách đã đăng ký thành công. Vui lòng kiểm tra email để nhận
+              mật khẩu đăng nhập hệ thống. Quý khách sẽ được chuyển hướng tới
+              trang đăng nhập sau <span>5</span>
+            </div>
+          </div>
+          <p style="margin-top: 20px">
+            <span
+              ><button
+                class="btn btn-lg btn-success confirmBtn swal2-styled"
+                type="button"
+                style="margin-right: 8px"
+                onclick="close_modal_true()"
+              >
+                Đồng ý
+              </button></span
+            >
+          </p>
         </div>
       </div>
     </div>
