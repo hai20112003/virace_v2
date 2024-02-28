@@ -184,8 +184,18 @@ function open_modal_true() {
   if (modal_true) {
     const modal = document.querySelector("#modal_true");
     modal.style.display = "block";
-    setTimeout(() => {
-      window.location.href = "http://127.0.0.1:5500/page/login/index.html";
-    }, 5000);
   }
 }
+
+function updateCountdown() {
+  const countdownElement = document.getElementById('countdown');
+  let count = parseInt(countdownElement.textContent);
+  count--;
+  countdownElement.textContent = count;
+  if (count <= 0) {
+      clearInterval(timer);
+      window.location.href = "http://127.0.0.1:5500/page/login/index.html";
+  }
+}
+
+const timer = setInterval(updateCountdown, 1000);
