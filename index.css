@@ -452,22 +452,9 @@ small {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 700;
 }
-/* 
-.modal{
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  transform: translateX(-50%);
-  background-color: white;
-  transition: margin 0.5s ease-in-out;
-  z-index: 1000;
-  padding: 0 20px;
-} */
-
 .disclaimer{
   display: none;
 }
-
 
 .btn-close {
   color: #aaaaaa;
@@ -538,4 +525,15 @@ button.close {
   padding: 20px;
   font-size: 14px;
   color: #212529;
+}
+
+.logout{
+  text-align: left;
+}
+
+.logout > .logout_btn{
+  padding: 5px 20px;
+  border: none;
+  border-radius: 3px;
+  margin-top: 20px;
 }
