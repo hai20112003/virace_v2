@@ -155,7 +155,7 @@
           </p>
         </div>
       </div>
-      <div id="modal_logout" style="display: none;">
+      <div id="modal_logout" style="display: block;">
         <div
           style="
             background-color: rgba(0, 0, 0, 0.4);
@@ -185,125 +185,14 @@
             display: block;
           "
         >
-          <div
-            style="
-              width: 80px;
-              height: 80px;
-              border-width: 4px;
-              border-style: solid;
-              border-color: rgb(76, 174, 76);
-              border-radius: 50%;
-              margin: 20px auto;
-              position: relative;
-              box-sizing: content-box;
-            "
-          >
-            <div
-              style="
-                border-radius: 120px 0px 0px 120px;
-                position: absolute;
-                width: 60px;
-                height: 100px;
-                background: white;
-                transform: rotate(-45deg);
-                top: -7px;
-                left: -33px;
-                transform-origin: 60px 60px;
-              "
-            ></div>
-            <span
-              style="
-                height: 5px;
-                background-color: rgb(92, 184, 92);
-                display: block;
-                border-radius: 2px;
-                position: absolute;
-                z-index: 2;
-                width: 25px;
-                left: 14px;
-                top: 46px;
-                transform: rotate(45deg);
-                animation: 0.75s ease 0s 1 normal none running animateSuccessTip;
-              "
-            ></span
-            ><span
-              style="
-                height: 5px;
-                background-color: rgb(92, 184, 92);
-                display: block;
-                border-radius: 2px;
-                position: absolute;
-                z-index: 2;
-                width: 47px;
-                right: 8px;
-                top: 38px;
-                transform: rotate(-45deg);
-                animation: 0.75s ease 0s 1 normal none running
-                  animateSuccessLong;
-              "
-            ></span>
-            <div
-              style="
-                width: 80px;
-                height: 80px;
-                border: 4px solid rgba(92, 184, 92, 0.2);
-                border-radius: 50%;
-                box-sizing: content-box;
-                position: absolute;
-                left: -4px;
-                top: -4px;
-                z-index: 2;
-              "
-            ></div>
-            <div
-              style="
-                width: 5px;
-                height: 90px;
-                background-color: rgb(255, 255, 255);
-                position: absolute;
-                left: 28px;
-                top: 8px;
-                z-index: 1;
-                transform: rotate(-45deg);
-              "
-            ></div>
-            <div
-              style="
-                border-radius: 0px 120px 120px 0px;
-                position: absolute;
-                width: 60px;
-                height: 120px;
-                background: white;
-                transform: rotate(-45deg);
-                top: -11px;
-                left: 30px;
-                transform-origin: 0px 60px;
-                animation: 4.25s ease-in 0s 1 normal none running
-                  rotatePlaceholder;
-              "
-            ></div>
-          </div>
-          <h2></h2>
+          <h4 style="color: dimgray;" data-lang='{"en": "NOTIFICATION", "vi": "THÔNG BÁO"}'>THÔNG BÁO</h4>
           <div class="text-muted lead">
-            <div>
+            <div style="text-align: center;">
               <span data-lang='{"en": "The system has logged out successfully", "vi": "Hệ thống đã đăng xuất thành công"}'>
                 Hệ thống đã đăng xuất thành công
               </span>
             </div>
           </div>
-          <p style="margin-top: 20px">
-            <span
-              ><button
-                class="btn btn-lg btn-success confirmBtn swal2-styled"
-                type="button"
-                style="margin-right: 8px"
-                onclick="close_modal_true()"
-                data-lang='{"en": "Agree", "vi": "Đồng ý"}'
-              >
-                Đồng ý
-              </button></span
-            >
-          </p>
         </div>
       </div>
       <div class="modal fade" id="modale_disclaimer">
